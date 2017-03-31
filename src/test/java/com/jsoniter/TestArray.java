@@ -1,8 +1,6 @@
 package com.jsoniter;
 
-import com.jsoniter.any.Any;
-import com.jsoniter.spi.TypeLiteral;
-import junit.framework.TestCase;
+import static org.junit.Assert.assertArrayEquals;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,14 +8,19 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.junit.Assert.assertArrayEquals;
+import junit.framework.TestCase;
+
+import org.junit.Test;
+
+import com.jsoniter.any.Any;
+import com.jsoniter.spi.TypeLiteral;
 
 public class TestArray extends TestCase {
 
     static {
 //        JsonIterator.setMode(DecodingMode.REFLECTION_MODE);
     }
-
+    @Test
     public void test_empty_array() throws IOException {
         JsonIterator iter = JsonIterator.parse("[]");
         assertFalse(iter.readArray());
